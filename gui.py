@@ -111,6 +111,7 @@ def add_user(frame_main) :
 
 def submit_update(angle, x, y, frame_update: Frame):
     insert_seat_preference(email_loggged_in, angle, x, y)
+    frame_update.grid_forget()
     main_page()
 
 def update_settings(frame_main: Frame):
