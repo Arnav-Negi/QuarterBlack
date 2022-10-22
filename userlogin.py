@@ -28,7 +28,3 @@ if __name__ == "__main__":
     dbname = return_db("password_db")
 
     print(check_record("abc", "xyz"))
-
-    
-
-    
