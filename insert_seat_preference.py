@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 
-MONGODB_URI = "mongodb+srv://quarterblack:ivehearditbothways@quarterblack.m3lf4hi.mongodb.net/?retryWrites=true&w=majority"
+MONGODB_URI = "mongodb://quarterblack:1@ac-qps7ry1-shard-00-00.e0vyjcs.mongodb.net:27017,ac-qps7ry1-shard-00-01.e0vyjcs.mongodb.net:27017,ac-qps7ry1-shard-00-02.e0vyjcs.mongodb.net:27017/?ssl=true&replicaSet=atlas-7weo1b-shard-0&authSource=admin&retryWrites=true&w=majority"
 
 client = MongoClient(MONGODB_URI)
 db = client["Megathon"]
