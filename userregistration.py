@@ -8,7 +8,9 @@ def return_db(db_name):
 
     return client[db_name]
 
-def add_record(collection_name, email, password):
+# returns -1 if email already exists
+# returns 1 otherwise
+def add_record(email, password, collection_name = return_db("password_db")["stored_passwords"]):
     email_exists = collection_name.find_one({"email": email})
 
     if email_exists:
@@ -22,6 +24,6 @@ def add_record(collection_name, email, password):
 if __name__ == "__main__":
     dbname = return_db("password_db")
 
-    # print(add_record(dbname["stored_passwords"], "abc", "xyz"))
+    print(add_record("abc", "xyz"))
 
     

@@ -8,9 +8,9 @@ def return_db(db_name):
 
     return client[db_name]
 
-# return
-
-def check_record(collection_name, email, password):
+# returns -1 if either email or password are wrong
+# returns 1 if the login is fine
+def check_record(email, password, collection_name = return_db("password_db")["stored_passwords"]):
     email_exists = collection_name.find_one({"email": email})
 
     if not email_exists:
@@ -27,7 +27,7 @@ def check_record(collection_name, email, password):
 if __name__ == "__main__":
     dbname = return_db("password_db")
 
-    print(check_record(dbname["stored_passwords"], "abc", "xyz"))
+    print(check_record("abc", "xyz"))
 
     
 
