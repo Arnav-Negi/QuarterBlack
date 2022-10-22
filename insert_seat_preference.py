@@ -26,5 +26,3 @@ def insert_seat_preference(email, inclination_angle, x_coord, y_coord, car_type 
         return
 
     seats.insert_one({"email" : email, "inclination_angle" : inclination_angle, "x_coord" : x_coord, "y_coord" : y_coord, "car_type" : car_type,  "massaging" : massaging, "bolstering" : bolstering})
-
-insert_seat_preference("abc", 2.1, 2.1, 2.1, "hatchback")
