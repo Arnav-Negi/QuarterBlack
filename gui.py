@@ -1,5 +1,6 @@
 from tkinter import *
 import tkinter.font as tkfont
+from insert_seat_preference import insert_seat_preference
 from userlogin import check_record
 from userregistration import add_record
 
@@ -108,6 +109,46 @@ def add_user(frame_main) :
     Submit.grid(row=5, column=0)
     Submit['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
 
+def submit_update(angle, x, y, frame_update: Frame):
+    insert_seat_preference(email_loggged_in, angle, x, y)
+    main_page()
+
+def update_settings(frame_main: Frame):
+    global interface
+
+    frame_main.destroy()
+    frame_update = Frame(interface, width=50, height=25)
+    frame_update.grid(row=0, column=0)
+
+    heading = Label(frame_update, text="Login Page", fg="black")
+    heading['font'] = tkfont.Font(family="Monospace", size=70, weight="bold")
+    heading.grid(row=1, column=0)
+    heading.grid(row=2, column=0)
+
+    angle_entry = Label(frame_update)
+    angle_entry.grid(row=3, column=0)
+    angle_entry['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    x_entry = Label(frame_update)
+    x_entry.grid(row=4, column=0)
+    x_entry['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    y_entry = Label(frame_update)
+    y_entry.grid(row=5, column=0)
+    y_entry['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+
+    angle_entry = Entry(frame_update)
+    angle_entry.grid(row=3, column=1)
+    angle_entry['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    x_entry = Entry(frame_update)
+    x_entry.grid(row=4, column=1)
+    x_entry['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    y_entry = Entry(frame_update)
+    y_entry.grid(row=5, column=1)
+    y_entry['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+
+    Submit = Button(frame_update, text = 'Submit', fg = '#FF7000', \
+        command=lambda: submit_update(angle_entry.get() ,x_entry.get(), y_entry.get(), frame_update))
+    Submit.grid(row=5, column=0)
+    Submit['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
 
 def main_page() :
     global logged_in, email_loggged_in
@@ -151,6 +192,13 @@ def main_page() :
         New = Button(frame_main, text = 'New User', fg = '#FF7000', command=lambda: add_user(frame_main))
         New['font'] = tkfont.Font(family = 'Verdana', size=45, weight = 'bold')
         New.grid(row = 6, column = 0)
+
+        Label(frame_main).grid(row=7,column = 0)
+        Label(frame_main).grid(row=8,column = 0)
+
+        New = Button(frame_main, text = 'Update settings', fg = '#FF7000', command=lambda: update_settings(frame_main))
+        New['font'] = tkfont.Font(family = 'Verdana', size=45, weight = 'bold')
+        New.grid(row = 9, column = 0)
 
 main_page()
 interface.mainloop()
