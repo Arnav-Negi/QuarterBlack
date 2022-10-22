@@ -4,6 +4,8 @@ import tkinter.font as tkfont
 
 from pyparsing import col
 
+from userlogin import check_record
+
 interface = Tk()
 interface.configure(background="gray")
 interface.title('Login Page')
@@ -13,16 +15,11 @@ interface.resizable(width = False, height = False)
 interface.grid_columnconfigure(0, weight = 1)
 interface.grid_rowconfigure(0, weight = 1)
 
-'''Check login creds'''
-def check_login(email,pwd) :
-    # implement DB query
-    return -1
-
 '''Submit button for login page'''
 def submit_login(email, pwd, frame: Frame) :
     frame.grid_forget()
     frame_submit = Frame(interface)
-    res = check_login(email, pwd)
+    res = check_record(email, pwd)
     frame_submit.grid(row=0, column=0)
 
     lbl = Label(frame_submit)
@@ -31,7 +28,7 @@ def submit_login(email, pwd, frame: Frame) :
         lbl.configure(text="User not found.")
         lbl['font'] = tkfont.Font(family = 'Jokerman', size=45, weight = 'bold')
     else :
-        lbl.configure(text="Welcome " + res)
+        lbl.configure(text="Welcome User")
         lbl['font'] = tkfont.Font(family = 'Jokerman', size=45, weight = 'bold')
 
 '''Displays login form. Queries DB to check for valid login.'''
