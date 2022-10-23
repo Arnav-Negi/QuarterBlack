@@ -32,7 +32,7 @@ def submit_login(email, pwd, frame: Frame) :
     email_loggged_in = email
     logged_in = 1
     # lbl.configure(text="Welcome " + email)
-    # lbl['font'] = tkfont.Font(family = 'Jokerman', size=45, weight = 'bold')
+    # lbl['font'] = tkfont.Font(family = 'Verdana', size=45, weight = 'bold')
     main_page()
 
 '''Displays login form. Queries DB to check for valid login.'''
@@ -77,7 +77,7 @@ def login_page(frame_main: Frame) :
     Submit = Button(frame_login, text = 'Submit', fg = '#FF7000', \
         command=lambda: submit_login(email_entry.get(), pwd_entry.get(), frame_login))
     Submit.grid(row=9, column=0, columnspan=2)
-    Submit['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    Submit['font'] = tkfont.Font(family = 'Verdana', size=20, weight = 'bold')
 
 def submit_add_user(email, pwd, frame: Frame) :
     res = add_record(email, pwd)
@@ -103,22 +103,22 @@ def add_user(frame_main) :
 
     email_login = Label(frame_login, text="Email")
     email_login.grid(row=3, column=0)
-    email_login['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    email_login['font'] = tkfont.Font(family = 'Verdana', size=20, weight = 'bold')
     pwd_login = Label(frame_login, text="Password")
     pwd_login.grid(row=4, column=0)
-    pwd_login['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    pwd_login['font'] = tkfont.Font(family = 'Verdana', size=20, weight = 'bold')
 
     email_entry = Entry(frame_login)
     email_entry.grid(row=3, column=1)
-    email_entry['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    email_entry['font'] = tkfont.Font(family = 'Verdana', size=20, weight = 'bold')
     pwd_entry = Entry(frame_login)
     pwd_entry.grid(row=4, column=1)
-    pwd_entry['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    pwd_entry['font'] = tkfont.Font(family = 'Verdana', size=20, weight = 'bold')
 
     Submit = Button(frame_login, text = 'Submit', fg = '#FF7000', \
         command=lambda: submit_add_user(email_entry.get(), pwd_entry.get(), frame_login))
     Submit.grid(row=5, column=0)
-    Submit['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    Submit['font'] = tkfont.Font(family = 'Verdana', size=20, weight = 'bold')
 
 
 def submit_update(angle, x, y, frame_update: Frame):
@@ -140,28 +140,28 @@ def update_settings(frame_main: Frame):
 
     angle_lbl = Label(frame_update, text="Angle")
     angle_lbl.grid(row=2, column=0)
-    angle_lbl['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    angle_lbl['font'] = tkfont.Font(family = 'Verdana', size=20, weight = 'bold')
     x_lbl = Label(frame_update, text="x")
     x_lbl.grid(row=3, column=0)
-    x_lbl['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    x_lbl['font'] = tkfont.Font(family = 'Verdana', size=20, weight = 'bold')
     y_lbl = Label(frame_update, text="y")
     y_lbl.grid(row=4, column=0)
-    y_lbl['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    y_lbl['font'] = tkfont.Font(family = 'Verdana', size=20, weight = 'bold')
 
     angle_entry = Entry(frame_update)
     angle_entry.grid(row=2, column=1)
-    angle_entry['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    angle_entry['font'] = tkfont.Font(family = 'Verdana', size=20, weight = 'bold')
     x_entry = Entry(frame_update)
     x_entry.grid(row=3, column=1)
-    x_entry['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    x_entry['font'] = tkfont.Font(family = 'Verdana', size=20, weight = 'bold')
     y_entry = Entry(frame_update)
     y_entry.grid(row=4, column=1)
-    y_entry['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    y_entry['font'] = tkfont.Font(family = 'Verdana', size=20, weight = 'bold')
 
     Submit = Button(frame_update, text = 'Submit', fg = '#FF7000', \
         command=lambda: submit_update(angle_entry.get() ,x_entry.get(), y_entry.get(), frame_update))
     Submit.grid(row=5, column=0, columnspan=2)
-    Submit['font'] = tkfont.Font(family = 'Jokerman', size=20, weight = 'bold')
+    Submit['font'] = tkfont.Font(family = 'Verdana', size=20, weight = 'bold')
 
 def main_page() :
     global logged_in, email_loggged_in
@@ -170,7 +170,7 @@ def main_page() :
 
     if logged_in == 0:
         heading = Label(frame_main,text = 'Login Page', fg = 'red')
-        heading['font'] = tkfont.Font(family = 'Jokerman', size=70, weight = 'bold')
+        heading['font'] = tkfont.Font(family = 'Verdana', size=70, weight = 'bold')
         heading.grid(row = 0,column = 0)
 
         Label(frame_main).grid(row=1,column = 0)
@@ -189,7 +189,7 @@ def main_page() :
 
     else:
         heading = Label(frame_main,text = 'Welcome ' + email_loggged_in, fg = 'red')
-        heading['font'] = tkfont.Font(family = 'Jokerman', size=70, weight = 'bold')
+        heading['font'] = tkfont.Font(family = 'Verdana', size=70, weight = 'bold')
         heading.grid(row = 0,column = 0)
 
         Label(frame_main).grid(row=1,column = 0)
